@@ -1,0 +1,42 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_19-f0fb38e55cfee2486a9a24b4c526d01771d106eb",
+  "solcVersion": "0.8.19",
+  "solcLongVersion": "0.8.19+commit.7dd6d404",
+  "compilerType": "solc",
+  "userSourceNameMap": {
+    "contracts/RecoverAIAudit.sol": "project/contracts/RecoverAIAudit.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "paris",
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/RecoverAIAudit.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.19;\r\n\r\ncontract RecoverAIAudit {\r\n    struct AuditRecord {\r\n        string paymentId;\r\n        string aiStrategy;\r\n        uint256 discountApplied;\r\n        uint256 timestamp;\r\n    }\r\n\r\n    mapping(string => AuditRecord) public logs;\r\n    event RecordLogged(string paymentId, string txHash);\r\n\r\n    function logDecision(\r\n        string memory _paymentId, \r\n        string memory _aiStrategy, \r\n        uint256 _discount\r\n    ) public {\r\n        logs[_paymentId] = AuditRecord({\r\n            paymentId: _paymentId,\r\n            aiStrategy: _aiStrategy,\r\n            discountApplied: _discount,\r\n            timestamp: block.timestamp\r\n        });\r\n        \r\n        emit RecordLogged(_paymentId, \"TX_HASH_PENDING\");\r\n    }\r\n}"
+      }
+    }
+  }
+}
