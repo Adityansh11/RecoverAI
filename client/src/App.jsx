@@ -92,8 +92,8 @@ export default function App() {
                       ) : "N/A"}
                     </td>
                     <td className="p-4 font-mono text-xs text-slate-400">
-                      {log.blockchainTx !== "PENDING" ? `${log.blockchainTx.substring(0, 12)}...` : "N/A"}
-                    </td>
+  {log.blockchainTx && log.blockchainTx !== "PENDING" ? `${log.blockchainTx.substring(0, 12)}...` : "N/A"}
+</td>
                   </tr>
                 ))}
               </tbody>
