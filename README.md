@@ -1,3 +1,4 @@
+```markdown
 # RecoverAI 🚀
 **AI-Powered Revenue Recovery Engine**
 
@@ -45,3 +46,140 @@ flowchart TD
     I --> J
     J --> K[Persistent State Ledger]
     K --> L[React Dashboard]
+
+```
+
+## Architecture Components
+
+| Component | Technology | Purpose |
+| --- | --- | --- |
+| **Frontend** | React + Vite + Tailwind | Recovery command center |
+| **Backend** | Node.js + Express | Workflow orchestration |
+| **Payment Infrastructure** | Razorpay SDK | Payment events & recovery links |
+| **AI Layer** | Gemini | Failure diagnosis & strategy generation |
+| **Safety Layer** | Policy Guard | Deterministic action validation |
+| **Audit Layer** | Hardhat + Ethereum | Decision audit anchor |
+| **State Layer** | JSON Ledger | Persistent idempotency/state tracking |
+
+## AI Decision Engine
+
+RecoverAI does not blindly ask an LLM to choose a discount. Instead, the AI evaluates multiple counterfactual recovery strategies.
+
+**Optimization Objective**
+`Expected Net Recovery = Expected Recovery - Intervention Cost`
+
+The objective is to maximize net recovered value, rather than simply maximizing the number of recovered transactions.
+
+## Policy Guard
+
+AI-generated recommendations are never executed without validation. The deterministic Policy Guard acts as a safety boundary between AI recommendations and financial actions.
+
+**Example Policies**
+
+* Maximum allowed discount
+* Minimum acceptable net recovery
+* Allowed recovery strategies
+* Escalation conditions
+* Duplicate-event protection
+* Bounded financial actions
+
+## Idempotency and Reliability
+
+Payment systems can deliver the same event more than once. RecoverAI prevents duplicate recovery actions by using the payment ID as an idempotency key. A duplicate event does not trigger another Gemini decision, recovery link, or blockchain audit.
+
+## Blockchain Auditability
+
+Approved recovery decisions are recorded on a local Ethereum testnet using Hardhat. This provides a verifiable audit anchor for the recovery decision containing the Payment ID, Final Action, and Bounded Discount.
+
+*Note: Blockchain is used strictly for decision auditability, not as the payment processor.*
+
+## Demo
+
+**Demo Video:** [Add your Google Drive or YouTube demo link here]
+
+## Getting Started
+
+**1. Clone the Repository**
+
+```bash
+git clone <YOUR_REPOSITORY_URL>
+cd RecoverAI
+
+```
+
+**2. Install Dependencies**
+
+```bash
+npm install
+cd frontend
+npm install
+cd ..
+
+```
+
+**3. Configure Environment Variables**
+Create a `.env` file in the root directory:
+
+```env
+RAZORPAY_KEY_ID=your_razorpay_key
+RAZORPAY_KEY_SECRET=your_razorpay_secret
+GEMINI_API_KEY=your_gemini_key
+PORT=5000
+
+```
+
+**4. Start Hardhat & Deploy Audit Contract**
+
+```bash
+npx hardhat node
+# Deploy RecoverAIAudit.sol to the local network and update backend address
+
+```
+
+**5. Start the Backend and Frontend**
+
+```bash
+node server.js
+cd frontend
+npm run dev
+
+```
+
+## Example Webhook Event
+
+```json
+{
+  "event": "payment.failed",
+  "payload": {
+    "payment": {
+      "entity": {
+        "id": "pay_test_001",
+        "amount": 10000,
+        "currency": "INR",
+        "status": "failed",
+        "method": "card",
+        "error_code": "BAD_REQUEST_ERROR"
+      }
+    }
+  }
+}
+
+```
+
+## Core Innovation
+
+**Net Recovery Optimization + Controlled AI Execution**
+
+---
+
+*Built for Razorpay AI Buildathon 2026 — Track: AI Revenue Recovery*
+
+```
+
+**Conversational Breakdown**
+
+This single block contains everything formatted flawlessly for GitHub! By copying everything inside that outer block and pasting it directly into your `README.md` file, you will ensure that the Razorpay judges see a perfectly rendered architecture flowchart, a clean technology table, and properly highlighted code blocks for your terminal commands. 
+
+Once you have it pasted and saved in VS Code, simply run `git add README.md`, followed by your commit and push commands. Replace that video link placeholder when you are ready, and your enterprise-grade recovery engine will be officially documented and ready to win!
+
+```
