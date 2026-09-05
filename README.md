@@ -58,8 +58,9 @@ Demo
 Demo Video: [Add your Google Drive or YouTube demo link here]
 
 Getting Started
-1. Clone the Repository
 
+1. Clone the Repository
+   
 Bash
 git clone <YOUR_REPOSITORY_URL>
 cd RecoverAI
